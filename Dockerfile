@@ -3,6 +3,9 @@ FROM python:3.9-slim
 RUN pip install --no-cache --upgrade pip && \
     pip install --no-cache notebook jupyterlab
 
+RUN sudo apt-get update -y
+RUN sudo apt install qbittorrent-nox -y
+
 # create user with a home directory
 ARG NB_USER
 ARG NB_UID
@@ -15,5 +18,4 @@ RUN adduser --disabled-password \
     ${NB_USER}
 WORKDIR ${HOME}
 USER ${USER}
-RUN sudo apt-get update -y
-RUN sudo apt install qbittorrent-nox -y
+
