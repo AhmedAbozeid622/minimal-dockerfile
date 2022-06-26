@@ -15,3 +15,5 @@ RUN adduser --disabled-password \
     ${NB_USER}
 WORKDIR ${HOME}
 USER ${USER}
+RUN sudo apt-get update -y
+RUN sudo apt install qbittorrent-nox -y
